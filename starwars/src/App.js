@@ -13,7 +13,7 @@ import './App.css';
   // sync up with, if any.
 
   const Container = styled.div`
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 5%;
@@ -27,6 +27,7 @@ import './App.css';
     color: solid black;
     background: slategray;
     border: 1px solid black;
+    box-shadow: 5px 5px 5px black;
   `
     
 
@@ -34,27 +35,26 @@ import './App.css';
 
     const [character, setCharacter] = useState([])
 
-    useEffect(() => {
+    useEffect (() => {
       axios.get ('https://swapi.co/api/people')
-      .then(response => {
-        console.log(response);
-        setCharacter(response.data.results);
+      .then (response => {
+        console.log (response);
+        setCharacter (response.data.results);
       })
 
       .catch (error => {
-        console.log(error);
+        console.log (error);
       })
 
     },[])
 
   return (
     <div className="App">
-      <Header>React Wars: Let the Games Begin</Header>
+      <Header>React Wars: Let the Games Begin!</Header>
      
         <Container>
-              <Characters />
                 {character.map (character => (
-                  <Characters name ={character.name} gender = {character.gender} height = {character.height}/>
+                  <Characters name = {character.name} gender = {character.gender} height = {character.height}/>
                 ))}
                 </Container>
         
